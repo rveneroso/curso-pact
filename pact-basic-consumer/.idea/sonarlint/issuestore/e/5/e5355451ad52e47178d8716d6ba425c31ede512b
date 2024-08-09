@@ -1,0 +1,9 @@
+
+¬
+java:S1130"‰Remove the declaration of thrown exception 'org.apache.http.client.ClientProtocolException' which is a subclass of 'java.io.IOException'.(óÊ’Þùÿÿÿÿ8®ð¤·“2
+`
+java:S1155">Use isEmpty() to check whether the collection is empty or not.(é„ÛŒûÿÿÿÿ8±ð¤·“2
+§
+java:S1130"‰Remove the declaration of thrown exception 'org.apache.http.client.ClientProtocolException' which is a subclass of 'java.io.IOException'.(¤Ç¹Á8µð¤·“2
+`
+java:S1155">Use isEmpty() to check whether the collection is empty or not.(é„ÛŒûÿÿÿÿ8¸ð¤·“2

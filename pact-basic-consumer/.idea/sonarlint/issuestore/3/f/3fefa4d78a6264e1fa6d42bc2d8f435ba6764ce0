@@ -1,0 +1,21 @@
+
+p
+java:S1192""NDefine a constant instead of duplicating this literal "Authorization" 5 times.(ÞˆŒøÿÿÿÿ8ÿì¤·“2
+¤
+java:S2681F"†This line will not be executed conditionally; only the first line of this 2-line block will be. The rest will execute unconditionally.(ãç¯¼8‡í¤·“2
+¦
+java:S1130"‰Remove the declaration of thrown exception 'org.apache.http.client.ClientProtocolException' which is a subclass of 'java.io.IOException'.(ø¡58Ëî¤·“2
+§
+java:S1130"‰Remove the declaration of thrown exception 'org.apache.http.client.ClientProtocolException' which is a subclass of 'java.io.IOException'.(»ùš‰8Üî¤·“2
+§
+java:S1130 "‰Remove the declaration of thrown exception 'org.apache.http.client.ClientProtocolException' which is a subclass of 'java.io.IOException'.(Â²ƒÝ8âî¤·“2
+¬
+java:S1130'"‰Remove the declaration of thrown exception 'org.apache.http.client.ClientProtocolException' which is a subclass of 'java.io.IOException'.(–¿Ì¸ûÿÿÿÿ8æî¤·“2
+¦
+java:S1130."‰Remove the declaration of thrown exception 'org.apache.http.client.ClientProtocolException' which is a subclass of 'java.io.IOException'.(´˜Ák8êî¤·“2
+¬
+java:S11306"‰Remove the declaration of thrown exception 'org.apache.http.client.ClientProtocolException' which is a subclass of 'java.io.IOException'.(Ø¥ÿíûÿÿÿÿ8ïî¤·“2
+¬
+java:S1130>"‰Remove the declaration of thrown exception 'org.apache.http.client.ClientProtocolException' which is a subclass of 'java.io.IOException'.(¹öš­øÿÿÿÿ8óî¤·“2
+Ë
+java:S1130D"­Remove the declaration of thrown exception 'com.fasterxml.jackson.databind.JsonMappingException' which is a subclass of 'com.fasterxml.jackson.core.JsonProcessingException'.(¯ÈÜí8öî¤·“2
