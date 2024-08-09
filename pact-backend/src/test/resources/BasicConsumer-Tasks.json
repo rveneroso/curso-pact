@@ -14,10 +14,64 @@
       },
       "response": {
         "status": 200,
+        "headers": {
+          "Content-Type": "application/json; charset=UTF-8"
+        },
         "body": {
-          "id": 1,
-          "task": "Task from pact",
-          "dueDate": "2020-01-01"
+          "task": "string",
+          "dueDate": "string",
+          "id": 1
+        },
+        "matchingRules": {
+          "body": {
+            "$.id": {
+              "matchers": [
+                {
+                  "match": "number"
+                }
+              ],
+              "combine": "AND"
+            },
+            "$.task": {
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ],
+              "combine": "AND"
+            },
+            "$.dueDate": {
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ],
+              "combine": "AND"
+            }
+          },
+          "header": {
+            "Content-Type": {
+              "matchers": [
+                {
+                  "match": "regex",
+                  "regex": "application/json(;\\s?charset=[\\w\\-]+)?"
+                }
+              ],
+              "combine": "AND"
+            }
+          }
+        },
+        "generators": {
+          "body": {
+            "$.task": {
+              "type": "RandomString",
+              "size": 20
+            },
+            "$.dueDate": {
+              "type": "RandomString",
+              "size": 20
+            }
+          }
         }
       },
       "providerStates": [
