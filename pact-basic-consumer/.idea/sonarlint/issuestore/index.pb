@@ -5,7 +5,5 @@ n
 >src/main/java/br/ce/wcaquino/consumer/utils/RequestHelper.java,3/f/3fefa4d78a6264e1fa6d42bc2d8f435ba6764ce0
 z
 Jsrc/test/java/br/ce/wcaquino/consumer/tasks/service/TasksConsumerTest.java,d/f/df6b6e79e0cd6dae49f563c643b480c3da4ee5ba
-
-Osrc/test/java/br/ce/wcaquino/consumer/tasks/pact/TasksConsumerContractTest.java,3/9/3957519fcc3dc7993538924d0102c3ca971d5ab3
 C
 docker-compose.yaml,e/f/ef8def03dc8f162799089e9b5f4321201c8810d5
