@@ -13,7 +13,15 @@ public class Todo {
 	private String task;
 	@DateTimeFormat(pattern="dd/MM/yyyy")
 	private LocalDate dueDate;
-	
+
+	public Todo() {}
+
+	public Todo(Long id, String task, LocalDate dueDate) {
+		this.id = id;
+		this.task = task;
+		this.dueDate = dueDate;
+	}
+
 	public Long getId() {
 		return id;
 	}
