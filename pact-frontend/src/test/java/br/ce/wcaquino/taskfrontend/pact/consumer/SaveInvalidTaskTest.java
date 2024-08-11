@@ -9,6 +9,7 @@ import au.com.dius.pact.core.model.RequestResponsePact;
 import au.com.dius.pact.core.model.annotations.Pact;
 import br.ce.wcaquino.tasksfrontend.model.Todo;
 import br.ce.wcaquino.tasksfrontend.repositories.TasksRepository;
+import org.hamcrest.CoreMatchers;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
@@ -19,8 +20,9 @@ import java.util.Date;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
+import static org.hamcrest.MatcherAssert.assertThat;
 
-public class SaveTaskTest {
+public class SaveInvalidTaskTest {
     @Rule
     public PactProviderRule mockProvider = new PactProviderRule("Tasks", this);
 
@@ -28,25 +30,19 @@ public class SaveTaskTest {
     public RequestResponsePact createPact(PactDslWithProvider builder) {
         DslPart requestBody = new PactDslJsonBody()
                 .nullValue("id")
-                .stringType("task", "New task")
-                .array("dueDate")
-                    .numberType(LocalDate.now().getYear())
-                    .numberType(LocalDate.now().getMonthValue())
-                    .numberType(LocalDate.now().getDayOfMonth())
-                .closeArray();
+                .nullValue("task")
+                .nullValue("dueDate");
 
         DslPart responseBody = new PactDslJsonBody()
-                .numberType("id")
-                .stringType("task", "New task")
-                .date("dueDate","yyy-MM-dd", new Date());
+                .stringType("message","Fill the task description");
         return builder
-                .uponReceiving("Save a task")
+                .uponReceiving("Save an invalid task")
                     .path("/todo")
                     .method("POST")
                     .matchHeader("Content-type","application/json.*", "application/json")
                     .body(requestBody)
                 .willRespondWith()
-                    .status(201)
+                    .status(400)
                     .body(responseBody)
                 .toPact();
     }
@@ -58,13 +54,12 @@ public class SaveTaskTest {
         TasksRepository consumer = new TasksRepository(mockProvider.getUrl());
 
         // Act
-        Todo task = consumer.save(new Todo(null, "New Task", LocalDate.now()));
-
-        // Assert
-        Assert.assertThat(task.getId(), is(notNullValue()));
-        // A assertiva abaixo foi alterada na aula que implementa os testes do provedor
-        //Assert.assertThat(task.getTask(), is("Task from pact"));
-        Assert.assertThat(task.getTask(), is("New task"));
-        Assert.assertThat(task.getDueDate(), is(LocalDate.now()));
+        try {
+            consumer.save(new Todo(null, null, null));
+            Assert.fail("Should throws an exception");
+        } catch(Exception e) {
+            assertThat(e.getMessage(), CoreMatchers.containsString("400 Bad Request"));
+            assertThat(e.getMessage(), CoreMatchers.containsString("Fill the task description"));
+        }
     }
 }

@@ -62,8 +62,6 @@ public class GetTaskByIdTest {
 
         // Act
         Todo task = consumer.getTodo(1L);
-        System.out.println(task);
-
 
         // Assert
         Assert.assertThat(task.getId(), is(1L));
