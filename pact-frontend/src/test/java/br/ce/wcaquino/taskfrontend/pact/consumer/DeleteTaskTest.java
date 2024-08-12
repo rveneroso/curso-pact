@@ -14,7 +14,7 @@ import org.junit.Test;
 
 import java.time.LocalDate;
 
-public class UpdateTaskTest {
+public class DeleteTaskTest {
 
     @Rule
     public PactProviderRule mockProvider = new PactProviderRule("Tasks", this);
@@ -22,23 +22,21 @@ public class UpdateTaskTest {
     @Pact(consumer = "TasksFront")
     public RequestResponsePact createPact(PactDslWithProvider builder) {
 
-        DslPart requestBody = new PactDslJsonBody()
-            .numberType("id", 1)
-                .stringType("task", "Task Updated")
-                .array("dueDate")
-                    .numberType(LocalDate.now().getYear())
-                    .numberType(LocalDate.now().getMonthValue())
-                    .numberType(LocalDate.now().getDayOfMonth())
-                .closeArray();
+//        DslPart requestBody = new PactDslJsonBody()
+//            .numberType("id", 1)
+//                .stringType("task", "Task Updated")
+//                .array("dueDate")
+//                    .numberType(LocalDate.now().getYear())
+//                    .numberType(LocalDate.now().getMonthValue())
+//                    .numberType(LocalDate.now().getDayOfMonth())
+//                .closeArray();
         return builder
                 .given("There is a task with id = 1")
-                .uponReceiving("Update a task")
+                .uponReceiving("Remove a task")
                     .path("/todo/1")
-                    .method("PUT")
-                    .matchHeader("Content-type","application/json.*", "application/json")
-                    .body(requestBody)
+                    .method("DELETE")
                 .willRespondWith()
-                    .status(200)
+                    .status(204)
                 .toPact();
     }
 
@@ -46,6 +44,6 @@ public class UpdateTaskTest {
     @PactVerification
     public void shouldUpdateTask() {
         TasksRepository repo = new TasksRepository(mockProvider.getUrl());
-        repo.update(new Todo(1L, "Task Updated", LocalDate.now()));
+        repo.delete(1L);
     }
 }
