@@ -39,7 +39,7 @@ public class GetTaskByIdTest {
                  * e passou a testar se é não-nulo).
                  */
                 .stringType("task", "Remember the milk")
-                .date("dueDate","yyy-MM-dd", new Date());
+                .date("dueDate","yyyy-MM-dd", new Date());
         return builder
                 .given("There is a task with id = 1")
                 .uponReceiving("Retrieve Task #1")

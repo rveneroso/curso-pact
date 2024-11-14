@@ -1,6 +1,8 @@
 package br.ce.wcaquino.taskbackend.controller;
 
+import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -67,5 +69,13 @@ public class TaskController {
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<Task> getById(@PathVariable Long id) {
 		return new ResponseEntity<Task>(todoRepo.get(id), HttpStatus.OK);
+	}
+
+	@PostMapping(value = "/pactStateChange")
+	public void stateChange(@RequestBody Map<String, Object> body) {
+		String state = (String) body.get("state");
+		if(state.equals("There is a task with id = 1")) {
+			todoRepo.update(new Task(1L, "Task #1", LocalDate.now()));
+		}
 	}
 }

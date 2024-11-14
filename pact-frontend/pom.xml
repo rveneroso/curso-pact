@@ -18,8 +18,42 @@
 
 	<properties>
 		<java.version>1.8</java.version>
-		<pact.version>4.1.7</pact.version>
+		<pact-version>4.1.7</pact-version>
 	</properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>au.com.dius.pact.provider</groupId>
+				<artifactId>maven</artifactId>
+				<version>${pact-version}</version>
+				<configuration>
+					<serviceProviders>
+						<serviceProvider>
+							<name>Tasks</name>
+							<protocol>http</protocol>
+							<host>localhost</host>
+							<port>8000</port>
+							<path>/</path>
+							<stateChangeUrl>http://localhost:8000/todo/pactStateChange</stateChangeUrl>
+						</serviceProvider>
+					</serviceProviders>
+					<pactBrokerUrl>http://localhost:9080</pactBrokerUrl>
+					<pactBrokerUsername>user1</pactBrokerUsername>
+					<pactBrokerPassword>userpasswd</pactBrokerPassword>
+					<trimSnapshot>true</trimSnapshot>
+					<configuration>
+						<pact.verifier.publishResults>true</pact.verifier.publishResults>
+					</configuration>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>3.12.1</version> <!-- Use the latest version if necessary -->
+			</plugin>
+		</plugins>
+	</build>
 
 	<dependencies>
 		<dependency>
@@ -33,12 +67,12 @@
 		<dependency>
 			<groupId>au.com.dius.pact.consumer</groupId>
 			<artifactId>junit</artifactId>
-			<version>${pact.version}</version>
+			<version>${pact-version}</version>
 		</dependency>
 		<dependency>
 			<groupId>au.com.dius.pact.consumer</groupId>
 			<artifactId>java8</artifactId>
-			<version>${pact.version}</version>
+			<version>${pact-version}</version>
 		</dependency>
 	</dependencies>
 </project>

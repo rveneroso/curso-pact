@@ -37,6 +37,7 @@
 							<host>localhost</host>
 							<port>8000</port>
 							<path>/</path>
+							<stateChangeUrl>http://localhost:8000/todo/pactStateChange</stateChangeUrl>
 						</serviceProvider>
 					</serviceProviders>
 					<pactBrokerUrl>http://localhost:9080</pactBrokerUrl>
