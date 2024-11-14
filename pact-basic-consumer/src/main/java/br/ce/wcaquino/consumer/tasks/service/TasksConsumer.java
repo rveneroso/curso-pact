@@ -1,6 +1,7 @@
 package br.ce.wcaquino.consumer.tasks.service;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.http.client.ClientProtocolException;
@@ -30,6 +31,20 @@ public class TasksConsumer {
 				String.format("{\"task\": \"%s\", \"dueDate\": \"%s\"}", task, dueDate));
 		if (response.keySet().size() == 0) return null;
 		
+		return new Task(Long.parseLong(response.get("id").toString()),
+				response.get("task").toString(), response.get("dueDate").toString());
+	}
+
+	public Task saveStrictTask(String task, String dueDate) throws ClientProtocolException, IOException {
+		System.out.println("Vai executar helper.getAll");
+		List tasks = helper.getAll(tasksURL + "/todo", null);
+		System.out.println("Executou helper.getAll");
+		// Verify tasks with same name
+
+		Map<String, Object> response = helper.post(tasksURL + "/todo",
+				String.format("{\"task\": \"%s\", \"dueDate\": \"%s\"}", task, dueDate));
+		if (response.keySet().size() == 0) return null;
+
 		return new Task(Long.parseLong(response.get("id").toString()),
 				response.get("task").toString(), response.get("dueDate").toString());
 	}
