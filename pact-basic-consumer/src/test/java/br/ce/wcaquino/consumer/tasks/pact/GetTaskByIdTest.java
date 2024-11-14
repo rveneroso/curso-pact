@@ -18,7 +18,7 @@ import java.io.IOException;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
 
-public class TasksConsumerContractTest {
+public class GetTaskByIdTest {
 
     @Rule
     public PactProviderRule mockProvider = new PactProviderRule("Tasks", this);
