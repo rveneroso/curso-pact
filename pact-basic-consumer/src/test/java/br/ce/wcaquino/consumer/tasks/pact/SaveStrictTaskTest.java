@@ -67,7 +67,7 @@ public class SaveStrictTaskTest {
     @PactVerification
     public void test() throws IOException {
         String baseUrl = mockProvider.getUrl();
-        
+
         TasksConsumer consumer = new TasksConsumer(mockProvider.getUrl());
         DateFormat dFormat = new SimpleDateFormat("yyyy-MM-dd");
 

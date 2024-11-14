@@ -30,6 +30,11 @@
 				<artifactId>maven</artifactId>
 				<version>${pact-version}</version>
 				<configuration>
+					<reports>
+						<report>console</report>
+						<report>json</report>
+						<report>markdown</report>
+					</reports>
 					<serviceProviders>
 						<serviceProvider>
 							<name>Tasks</name>
