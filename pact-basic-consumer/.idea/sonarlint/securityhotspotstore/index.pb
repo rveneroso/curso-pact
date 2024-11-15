@@ -11,7 +11,5 @@ Bsrc/test/java/br/ce/wcaquino/consumer/tasks/pact/SaveTaskTest.java,5/d/5d3fd29
 pom.xml,4/4/442292b8a7efeabbe4cc176709b833b1792140ec
 n
 >src/main/java/br/ce/wcaquino/consumer/utils/RequestHelper.java,3/f/3fefa4d78a6264e1fa6d42bc2d8f435ba6764ce0
-v
-Fsrc/main/java/br/ce/wcaquino/consumer/tasks/service/TasksConsumer.java,e/5/e5355451ad52e47178d8716d6ba425c31ede512b
 x
 Hsrc/test/java/br/ce/wcaquino/consumer/tasks/pact/SaveStrictTaskTest.java,6/0/60a1f474cc00561e0d47d32e4a95f6dee8a58abb
