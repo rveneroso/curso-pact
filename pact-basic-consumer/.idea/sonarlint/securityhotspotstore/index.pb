@@ -7,8 +7,6 @@ u
 Esrc/test/java/br/ce/wcaquino/consumer/tasks/pact/GetTaskByIdTest.java,3/8/381df6f453f13bca513980454693947f8e863151
 r
 Bsrc/test/java/br/ce/wcaquino/consumer/tasks/pact/SaveTaskTest.java,5/d/5d3fd29b3a742603b19a508d885b18f6f56b65ee
-7
-pom.xml,4/4/442292b8a7efeabbe4cc176709b833b1792140ec
 n
 >src/main/java/br/ce/wcaquino/consumer/utils/RequestHelper.java,3/f/3fefa4d78a6264e1fa6d42bc2d8f435ba6764ce0
 x

@@ -11,5 +11,3 @@ r
 Bsrc/test/java/br/ce/wcaquino/consumer/tasks/pact/SaveTaskTest.java,5/d/5d3fd29b3a742603b19a508d885b18f6f56b65ee
 x
 Hsrc/test/java/br/ce/wcaquino/consumer/tasks/pact/SaveStrictTaskTest.java,6/0/60a1f474cc00561e0d47d32e4a95f6dee8a58abb
-7
-pom.xml,4/4/442292b8a7efeabbe4cc176709b833b1792140ec
