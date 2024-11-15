@@ -38,12 +38,13 @@ public class GetTaskByIdTest {
                  * informada no campo task seja considerada válida (ver a mudança feita no Assert: deixou de testar um valor específico
                  * e passou a testar se é não-nulo).
                  */
-                .stringType("task", "Remember the milk")
+                .stringType("task")
                 .date("dueDate","yyyy-MM-dd", new Date());
         return builder
                 .given("There is a task with id = 1")
                 .uponReceiving("Retrieve Task #1")
-                .path("/todo/1")
+                //.path("/todo/1")
+                .matchPath("/todo/\\d+", "/todo/1")
                 .method("GET")
                 .willRespondWith()
                 .status(200)
@@ -67,7 +68,7 @@ public class GetTaskByIdTest {
         Assert.assertThat(task.getId(), is(1L));
         // A assertiva abaixo foi alterada na aula que implementa os testes do provedor
         //Assert.assertThat(task.getTask(), is("Task from pact"));
-        Assert.assertThat(task.getTask(), is("Remember the milk"));
+        Assert.assertThat(task.getTask(), is(notNullValue()));
         Assert.assertThat(task.getDueDate(), is(LocalDate.now()));
     }
 }
