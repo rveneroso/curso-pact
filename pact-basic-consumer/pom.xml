@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>br.ce.wcaquino.pact</groupId>
 	<artifactId>BasicConsumer</artifactId>
-	<version>0.0.5-SNAPSHOT</version>
+	<version>0.0.6-SNAPSHOT</version>
 
 	<properties>
 		<java.version>17</java.version>

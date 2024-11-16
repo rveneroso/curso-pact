@@ -5,16 +5,12 @@ C
 docker-compose.yaml,e/f/ef8def03dc8f162799089e9b5f4321201c8810d5
 u
 Esrc/test/java/br/ce/wcaquino/consumer/tasks/pact/GetTaskByIdTest.java,3/8/381df6f453f13bca513980454693947f8e863151
-r
-Bsrc/test/java/br/ce/wcaquino/consumer/tasks/pact/SaveTaskTest.java,5/d/5d3fd29b3a742603b19a508d885b18f6f56b65ee
 n
 >src/main/java/br/ce/wcaquino/consumer/utils/RequestHelper.java,3/f/3fefa4d78a6264e1fa6d42bc2d8f435ba6764ce0
 x
 Hsrc/test/java/br/ce/wcaquino/consumer/tasks/pact/SaveStrictTaskTest.java,6/0/60a1f474cc00561e0d47d32e4a95f6dee8a58abb
 y
 Isrc/main/java/br/ce/wcaquino/consumer/barriga/desktop/BarrigaDesktop.java,2/6/26fcef35a4bcea7e6a3a2c23eaae6bf8d0ea9b43
-w
-Gsrc/test/java/br/ce/wcaquino/consumer/tasks/pact/barriga/LoginTest.java,3/4/340a6dff3e0a6abf8405745d5937375a5c4efe4e
 |
 Lsrc/test/java/br/ce/wcaquino/consumer/tasks/pact/barriga/GetAccountTest.java,7/0/70ac015850e0dc889e693997630438092c36cf09
 z

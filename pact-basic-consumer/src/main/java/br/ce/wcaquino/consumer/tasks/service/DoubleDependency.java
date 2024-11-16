@@ -27,6 +27,5 @@ public class DoubleDependency {
     public static void main(String[] args) throws IOException {
         DoubleDependency dd = new DoubleDependency("https://barrigarest.wcaquino.me", "http://localhost:8000");
         String task = dd.getToken("rvenerosostudy@gmail.com", "15112024");
-        System.out.println(task);
     }
 }
