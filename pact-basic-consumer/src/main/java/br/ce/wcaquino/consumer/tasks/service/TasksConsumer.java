@@ -36,9 +36,7 @@ public class TasksConsumer {
 	}
 
 	public Task saveStrictTask(String task, String dueDate) throws ClientProtocolException, IOException {
-		System.out.println("Vai executar helper.getAll");
 		List tasks = helper.getAll(tasksURL + "/todo", null);
-		System.out.println("Executou helper.getAll");
 		// Verify tasks with same name
 
 		Map<String, Object> response = helper.post(tasksURL + "/todo",

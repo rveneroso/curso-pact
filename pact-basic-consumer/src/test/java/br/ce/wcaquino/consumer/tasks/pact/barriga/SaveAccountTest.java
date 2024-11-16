@@ -53,4 +53,42 @@ public class SaveAccountTest {
         assertThat(result, is(instanceOf(PactVerificationResult.Ok.class)));
 
     }
+
+    @Test
+    public void testWithDynamicToken() {
+        PactDslJsonBody requestBody = new PactDslJsonBody()
+                .stringValue("nome", ACCOUNT_NAME);
+
+        PactDslJsonBody responseBody = new PactDslJsonBody()
+                .numberType("id")
+                .stringValue("nome", ACCOUNT_NAME);
+
+        RequestResponsePact pact = ConsumerPactBuilder
+                .consumer("BasicConsumer")
+                .hasPactWith("Barriga")
+                .given("I have a valid token")
+                .uponReceiving("Insert account 'Acc test'")
+                    .path("/contas")
+                    .method("POST")
+                    .headerFromProviderState("Authorization", "${token}", TOKEN)
+                    .body(requestBody)
+                .willRespondWith()
+                    .status(201)
+                    .body(responseBody)
+                .toPact();
+
+        MockProviderConfig config = MockProviderConfig.createDefault();
+        PactVerificationResult result = ConsumerPactRunnerKt.runConsumerTest(pact, config, (mockServer, context) -> {
+            BarrigaConsumer consumer = new BarrigaConsumer(mockServer.getUrl());
+            String id = consumer.insertAccount(ACCOUNT_NAME, TOKEN);
+            assertThat(id, is(notNullValue()));
+            return null;
+        });
+
+        if (result instanceof  PactVerificationResult.Error) {
+            throw new RuntimeException(((PactVerificationResult.Error) result).getError());
+        }
+        assertThat(result, is(instanceOf(PactVerificationResult.Ok.class)));
+
+    }
 }

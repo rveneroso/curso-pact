@@ -26,6 +26,13 @@ public class UpdateAccountTest {
         RequestResponsePact pact = ConsumerPactBuilder
                 .consumer("BasicConsumer")
                 .hasPactWith("Barriga")
+                /*
+                 * Aqui são testados 2 estados. Para que os testes funcionem, a ordem ter que ser a que está definida. Isso porque
+                 * entre os 2 estados ocorre um reset. Se o estado da conta for testado primeiro, após o reset a conta obtida para
+                 * update terá sido perdida. Com o token sendo executado primeiro não há problemas já que o token não expira. Assim,
+                 * após o reset, o token continuará válido, permitindo que os testes funcionem.
+                 */
+                .given("I have a valid token")
                 .given("I have an accountId")
                 .uponReceiving("Update the existing account")
                     //.path("/contas/1000")

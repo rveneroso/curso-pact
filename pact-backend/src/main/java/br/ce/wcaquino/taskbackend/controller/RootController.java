@@ -39,6 +39,9 @@ public class RootController {
 				String accountId = firstAccount.get("id").toString();
 				response.put("accountId", accountId);
 				break;
+			case "I have a valid token":
+				response.put("token", TOKEN);
+				break;
 			default:
 				break;
 		}
