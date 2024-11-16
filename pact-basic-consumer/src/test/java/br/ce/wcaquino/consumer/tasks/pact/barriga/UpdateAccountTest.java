@@ -26,9 +26,10 @@ public class UpdateAccountTest {
         RequestResponsePact pact = ConsumerPactBuilder
                 .consumer("BasicConsumer")
                 .hasPactWith("Barriga")
-                .given("There is the account #1000")
+                .given("I have an accountId")
                 .uponReceiving("Update the existing account")
-                    .path("/contas/1000")
+                    //.path("/contas/1000")
+                    .pathFromProviderState("/contas/${accountId}", "/contas/1000")
                     .method("PUT")
                     .matchHeader("Authorization", "JWT .*", TOKEN)
                     .body(requestBody)
